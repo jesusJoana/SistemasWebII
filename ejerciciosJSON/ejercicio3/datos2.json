@@ -1,0 +1,7 @@
+{
+  "nombre": "Transformers",
+  "ano": 2007,
+  "direccion": "Michael Bay",
+  "productores": ["Roberto Orci", "Alex Kurtzman", "John Rogers"],
+  "estrellas": ["Shia LaBeouf","Megan Fox","Josh Duhamel"]
+}

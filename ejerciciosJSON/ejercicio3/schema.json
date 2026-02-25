@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "nombre": {
+      "type": "string"
+    },
+    "ano": {
+      "type": "integer"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "productores": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "estrellas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": ["nombre","ano", "direccion", "productores", "estrellas"]
+}
