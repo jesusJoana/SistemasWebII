@@ -1,0 +1,28 @@
+{
+  "squadName": "Super herosquad",
+  "homeTown": "Metro City",
+  "formed": 2016,
+  "secretBase": "Super tower",
+  "active": true,
+  "members": [
+    {
+      "name": "MoleculeMan",
+      "age": 29,
+      "secretIdentity": "Dan Jukes",
+      "powers": [
+        "Radiationresistance",
+        "Turningtiny",
+        "Radiationblast"
+      ]
+    },
+    {
+      "name": "Madame Uppercut",
+      "age": 39,
+      "secretIdentity": "Jane Wilson",
+      "powers": [
+        "Milliontonnepunch",
+        "Damageresistance"
+      ]
+    }
+  ]
+}
