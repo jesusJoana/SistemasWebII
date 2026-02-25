@@ -14,7 +14,7 @@
     "secretBase": {
       "type": "string"
     },
-    "activate": {
+    "active": {
       "type": "boolean"
     },
     "members": {
@@ -37,24 +37,22 @@
               "type": "string"
             }
           }
-        }
-      }
-    },
-    "name": {
-      "type":"string"
-    },
-    "age": {
-      "type": "integer"
-    },
-    "secretIdentity": {
-      "type": "string"
-    },
-    "powers": {
-      "type": "array",
-      "items": {
-        "type": "string"
+        },
+        "required": [
+          "name",
+          "age",
+          "secretIdentity",
+          "powers"
+        ]
       }
     }
   },
-  "required": ["members"]
+  "required": [
+    "squadName",
+    "homeTown",
+    "formed",
+    "secretBase",
+    "active",
+    "members"
+  ]
 }
