@@ -1,0 +1,62 @@
+openapi: 3.1.0
+
+info:
+  title: API de autores
+  version: 1.0.0
+  description: API para consultar y crear autores
+
+paths: 
+  /autores:
+    get:
+      summary: Obtener todos los autores
+      parameters:
+        - name: page
+          in: query
+          description: Numero de pagina
+          required: false
+          schema:
+            type: integer
+        - name: country
+          in: query
+          description: Pais del autor
+          required: false
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/autor'
+        "422":
+          description: Parámetros incorrectos
+
+    post:
+      summary: Crear un autor
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Formato incorrecto
+
+components:
+  schemas:
+    autor:
+      type: object
+      required:
+        - id
+        - nombre
+      
+      properties:
+        id:
+          type: integer
+        
+        nombre: 
+          type: string
+        
+        country: 
+          type: string

@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "required": ["producto","precio","disponible","categorias"],
+    "properties":{
+        "producto":{
+            "type":"string"
+        },
+        "precio":{
+            "type":"number"
+        },
+        "disponible":{
+            "type":"boolean"
+        },
+        "categorias":{
+            "type":"array",
+            "items":{
+                "type":"string"
+            }
+        }
+    }
+}

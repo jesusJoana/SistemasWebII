@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "required": ["pedidoId", "cliente", "estado", "productos", "envio", "cupon"],
+  "properties": {
+    "pedidoId": {
+      "type": "integer"
+    },
+    "cliente": {
+      "type": "object",
+      "required": ["nombre", "email"],
+      "properties": {
+        "nombre": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "telefono": {
+          "type": "string"
+        }
+      }
+    },
+    "estado": {
+      "type": "string",
+      "enum": ["pendiente", "pagado", "enviado", "cancelado"]
+    },
+    "productos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["nombre", "precio", "cantidad"],
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "precio": {
+            "type": "number"
+          },
+          "cantidad": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "envio": {
+      "type": "object",
+      "required": ["direccion", "ciudad", "codigoPostal"],
+      "properties": {
+        "direccion": {
+          "type": "string"
+        },
+        "ciudad": {
+          "type": "string"
+        },
+        "codigoPostal": {
+          "type": "string"
+        }
+      }
+    },
+    "cupon": {
+      "type": ["string", "null"]
+    }
+  }
+}

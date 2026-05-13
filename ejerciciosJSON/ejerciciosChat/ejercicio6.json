@@ -1,0 +1,19 @@
+{
+    "type":"object",
+    "required":["usuario", "password", "estado"],
+    "properties":{
+        "usuario":{
+            "type":"string"
+        },
+        "password":{
+            "type":"string"
+        },
+        "estado":{
+            "type":"string",
+            "enum":["activo","inactivo","bloqueado"]
+        },
+        "edad":{
+            "type":"integer"
+        }
+    }
+}

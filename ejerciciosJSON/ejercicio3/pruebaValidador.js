@@ -19,12 +19,6 @@ async function main() {
 
     const ok = validate(datos);
 
-    if (ok) {
-        console.log("✅ Datos válidos según el schema");
-    } else {
-        console.log("❌ Datos NO válidos");
-        console.log(validate.errors);
-    }
 }
 
 main().catch(console.error);

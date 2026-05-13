@@ -1,0 +1,24 @@
+{
+    "type":"object",
+    "required":["nombre","empleados"],
+    "properties":{
+        "nombre":{
+            "type":"string"
+        },
+        "empleados":{
+            "type":"array",
+            "items":{
+                "type":"object",
+                "required":["nombre","edad"],
+                "properties":{
+                    "nombre":{
+                        "type":"string"
+                    },
+                    "edad":{
+                        "type":"integer"
+                    }
+                }
+            }
+        }
+    }
+}

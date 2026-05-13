@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE cinema [
+<!ELEMENT cinema (movie+)>
+<!ELEMENT movie (title, director, year, actor+, review*)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT director (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT actor (#PCDATA)>
+<!ELEMENT review (#PCDATA)>
+
+<!ATTLIST movie id CDATA #REQUIRED>
+<!ATTLIST movie genre CDATA #IMPLIED>
+]>
+
+
+<cinema>
+    <movie id="m1" genre="science-fiction">
+
+        <title>Interstellar</title>
+
+        <director>
+            Christopher Nolan
+        </director>
+
+        <year>2014</year>
+
+        <actor>Matthew McConaughey</actor>
+        <actor>Anne Hathaway</actor>
+
+        <review>Excellent visuals and story</review>
+
+    </movie>
+
+    <movie id="m2">
+
+        <title>Inception</title>
+
+        <director>
+            Christopher Nolan
+        </director>
+
+        <year>2010</year>
+
+        <actor>Leonardo DiCaprio</actor>
+
+    </movie>
+</cinema>

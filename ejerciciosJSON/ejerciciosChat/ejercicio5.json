@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "required": ["nombre", "edad", "email", "rol"],
+  "properties": {
+    "nombre": {
+      "type": "string"
+    },
+    "edad": {
+      "type": "integer"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "rol": {
+      "type": "string",
+      "enum": ["admin", "user", "guest"]
+    }
+  }
+}

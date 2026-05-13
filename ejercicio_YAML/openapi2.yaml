@@ -1,0 +1,36 @@
+openapi: 3.1.0
+
+info:
+  title: API de libros
+  version: 1.0.0
+
+paths:
+  /libros:
+    get:
+      summary: Obtener todos los libros
+      parameters:
+        - name: page
+          in: query
+          description: Numero de pagina
+          required: false
+          schema:
+            type: integer
+
+        - name: genre
+          in: query
+          description: Genero del libro
+          required: false
+          schema:
+            type: string
+
+      responses: 
+      "200":
+        description: OK
+
+    post:
+      summary: Crear un libro
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: Error

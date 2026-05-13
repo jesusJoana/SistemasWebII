@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hospital [
+<!ELEMENT hospital (patient+, doctor)>
+<!ELEMENT patient (name, age, diagnosis, medicine*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT diagnosis (#PCDATA)>
+<!ELEMENT medicine (#PCDATA)>
+<!ELEMENT doctor (fullname, specialty)>
+<!ELEMENT fullname (#PCDATA)>
+<!ELEMENT specialty (#PCDATA)>
+
+<!ATTLIST patient id CDATA #REQUIRED>
+<!ATTLIST patient insurance CDATA #IMPLIED>
+<!ATTLIST doctor license CDATA #REQUIRED>
+]>
+
+<hospital>
+    <patient id="p1">
+
+        <name>Juan Pérez</name>
+
+        <age>45</age>
+
+        <diagnosis>Flu</diagnosis>
+
+        <medicine>Paracetamol</medicine>
+        <medicine>Ibuprofen</medicine>
+
+    </patient>
+
+    <patient id="p2" insurance="private">
+
+        <name>Laura Gómez</name>
+
+        <age>30</age>
+
+        <diagnosis>Allergy</diagnosis>
+
+    </patient>
+
+    <doctor license="d77">
+
+        <fullname>Dr. Smith</fullname>
+
+        <specialty>Cardiology</specialty>
+
+    </doctor>
+</hospital>

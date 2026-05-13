@@ -1,0 +1,14 @@
+openapi: 3.1.0
+
+info:
+  title: API de libros
+  version: 1.0.0
+  description: API para consultar libros
+
+paths:
+  /libros:
+    get:
+      summary: Obtener todos los libros
+      responses:
+        "200":
+          description: OK
