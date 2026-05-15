@@ -1,0 +1,80 @@
+{
+  "type": "object",
+  "required": [
+    "tienda",
+    "ubicacion",
+    "productos"
+  ],
+  "properties": {
+    "tienda": {
+      "type": "string"
+    },
+    "ubicacion": {
+      "type": "object",
+      "required": [
+        "ciudad",
+        "calle"
+      ],
+      "properties": {
+        "ciudad": {
+          "type": "string"
+        },
+        "calle": {
+          "type": "string"
+        }
+      }
+    },
+    "productos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "nombre",
+          "categoria",
+          "precio",
+          "stock",
+          "disponible",
+          "etiquetas"
+        ],
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "categoria": {
+            "type": "object",
+            "required": [
+              "nombre",
+              "codigo"
+            ],
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "codigo": {
+                "type": "string"
+              }
+            }
+          },
+          "precio": {
+            "type": "number"
+          },
+          "stock": {
+            "type": "integer"
+          },
+          "disponible": {
+            "type": "boolean"
+          },
+          "etiquetas": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "ventaOnline": {
+      "type": "boolean"
+    }
+  }
+}
