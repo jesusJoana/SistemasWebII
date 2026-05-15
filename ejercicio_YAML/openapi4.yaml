@@ -1,0 +1,73 @@
+openapi: 3.1.0
+
+info:
+  title: API de películas
+  version: 1.0.0
+  description: API REST para gestionar catálogo de películas
+
+paths:
+  /peliculas:
+    get:
+      summary: Obtener listado de películas
+      parameters:
+        - name: page
+          in: query
+          description: Número de página
+          required: false
+          schema:
+            type: integer
+
+        - name: genre
+          in: query
+          description: Género de la película
+          required: false
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: Operación correcta
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/pelicula'
+
+        "422":
+          description: Parámetros incorrectos
+
+    post:
+      summary: Registrar una nueva película
+      responses:
+        "201":
+          description: Película creada
+
+        "400":
+          description: Formato incorrecto
+
+components:
+  schemas:
+    pelicula:
+      type: object
+      required:
+        - id
+        - titulo
+        - director
+
+      properties:
+        id:
+          type: integer
+
+        titulo:
+          type: string
+
+        director:
+          type: string
+
+        year:
+          type: integer
+          minimum: 1900
+
+        genre:
+          type: string

@@ -1,0 +1,14 @@
+# Ejercicio 1 MongoDB consultas 
+
+# 1 - db.zips.countDocuments({pop:{$lt:1000}})
+# 2 - Math.abs(db.trips.countDocuments({"birth year": {$gt:1998}}) - db.trips.countDocuments({"birth year": 1998}))
+# 3 - db.routes.countDocuments({"stops":{$gte:1}})
+# 4 - db.inspections.countDocuments({"result":"Out of Business", "sector":"Home Improvement Contractor - 100"})
+# 5 - db.inspections.countDocuments({"date": {$in: ["Feb 20 2015", "Feb 21 2015"]}, "sector": {$ne: "Cigarette Retail Dealer - 127"}})
+
+
+# Ejercicio 2 MongoDB consultas
+
+# 1 - db.companies.countDocuments({$expr:{$gt:["$number_of_employees", "$founded_year"]}})
+# 2 - db.companies.countDocuments({$expr:{$eq:["$permalink", "$twitter_username"]}})
+# 3 -   

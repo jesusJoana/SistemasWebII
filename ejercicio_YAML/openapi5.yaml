@@ -1,0 +1,64 @@
+openapi: 3.1.0
+
+info:
+  title: API de libros
+  version: 1.0.0
+  description: API REST para gestionar sus libros
+
+paths:
+  /libros/{id}:
+    get:
+      summary: Permite obtener la información de un libro en concreto
+      parameters:
+        - name: id
+          in: path
+          description: Identificador del libro
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        "200":
+          description: Operación correcta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/libro'
+
+        "404":
+          description: Libro no encontrado
+
+  /libros:
+    post:
+      summary: Permite registrar un nuevo libro
+      responses:
+        "201":
+          description: Libro creado
+
+        "400":
+          description: Formato incorrecto
+
+components:
+  schemas:
+    libro:
+      type: object
+      required:
+        - id
+        - titulo
+        - autor
+
+      properties:
+        id:
+          type: integer
+
+        titulo:
+          type: string
+
+        autor:
+          type: string
+
+        paginas:
+          type: integer
+
+        disponible:
+          type: boolean

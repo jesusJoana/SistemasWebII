@@ -1,0 +1,41 @@
+{
+    "type":"object",
+    "required": ["empresa", "empleados"],
+    "properties":{
+        "empresa":{
+            "type":"string"
+        },
+        "empleados":{
+            "type":"array",
+            "items":{
+                "type":"object",
+                "required":["nombre","email","edad","departamento","habilidades"],
+                "properties":{
+                    "nombre":{
+                        "type":"string"
+                    },
+                    "email":{
+                        "type":"string",
+                        "format":"email"
+                    },
+                    "edad":{
+                        "type":"integer"
+                    },
+                    "departamento":{
+                        "type":"string"
+                    },
+                    "habilidades":{
+                        "type":"array",
+                        "items":{
+                            "type":"string",
+                            "enum": ["IT", "RRH", "Ventas", "Marketing"]
+                        }
+                    }
+                }
+            }
+        },
+        "activa":{
+            "type":"boolean"
+        }
+    }
+}
