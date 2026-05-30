@@ -1,0 +1,77 @@
+[
+  {
+    "name": "La Esquina Verde",
+    "cuisine": "Mediterranea",
+    "address": { "street": "Calle Mayor 12", "city": "Madrid", "postalCode": "28013" },
+    "rating": 4.6,
+    "phone": "+34910000000",
+    "dishes": [
+      { "name": "Tortilla de patata", "price": 8.5, "vegetarian": true },
+      { "name": "Croquetas", "price": 9.25, "vegetarian": false },
+      { "name": "Ensalada templada", "price": 11.0, "vegetarian": true }
+    ]
+  },
+  {
+    "name": "Sushi Norte",
+    "cuisine": "Japonesa",
+    "address": { "street": "Avenida Europa 4", "city": "Pozuelo", "postalCode": "28224" },
+    "rating": 4.8,
+    "phone": "+34910000001",
+    "dishes": [
+      { "name": "Nigiri salmon", "price": 6.5, "vegetarian": false },
+      { "name": "Maki aguacate", "price": 5.75, "vegetarian": true },
+      { "name": "Ramen miso", "price": 12.5, "vegetarian": false },
+      { "name": "Gyozas", "price": 7.0, "vegetarian": false }
+    ]
+  },
+  {
+    "name": "Pasta Centro",
+    "cuisine": "Italiana",
+    "address": { "street": "Calle Arenal 18", "city": "Madrid", "postalCode": "28013" },
+    "rating": 4.1,
+    "phone": "+34910000002",
+    "dishes": [
+      { "name": "Carbonara", "price": 12.0, "vegetarian": false },
+      { "name": "Pesto", "price": 10.5, "vegetarian": true }
+    ]
+  },
+  {
+    "name": "Taco Sur",
+    "cuisine": "Mexicana",
+    "address": { "street": "Calle Huertas 7", "city": "Madrid", "postalCode": "28012" },
+    "rating": 4.4,
+    "phone": "+34910000003",
+    "dishes": [
+      { "name": "Taco pastor", "price": 3.5, "vegetarian": false },
+      { "name": "Quesadilla", "price": 6.0, "vegetarian": true },
+      { "name": "Guacamole", "price": 7.0, "vegetarian": true },
+      { "name": "Burrito pollo", "price": 9.5, "vegetarian": false },
+      { "name": "Nachos", "price": 8.0, "vegetarian": true }
+    ]
+  },
+  {
+    "name": "Burger Rio",
+    "cuisine": "Americana",
+    "address": { "street": "Paseo Imperial 21", "city": "Madrid", "postalCode": "28005" },
+    "rating": 3.9,
+    "phone": "+34910000004",
+    "dishes": [
+      { "name": "Cheeseburger", "price": 10.0, "vegetarian": false },
+      { "name": "Veggie burger", "price": 9.5, "vegetarian": true },
+      { "name": "Patatas", "price": 4.0, "vegetarian": true }
+    ]
+  },
+  {
+    "name": "Curry Plaza",
+    "cuisine": "India",
+    "address": { "street": "Calle Princesa 30", "city": "Madrid", "postalCode": "28008" },
+    "rating": 4.8,
+    "phone": "+34910000005",
+    "dishes": [
+      { "name": "Chicken tikka", "price": 13.0, "vegetarian": false },
+      { "name": "Dal", "price": 9.0, "vegetarian": true },
+      { "name": "Naan", "price": 2.5, "vegetarian": true },
+      { "name": "Palak paneer", "price": 10.5, "vegetarian": true }
+    ]
+  }
+]

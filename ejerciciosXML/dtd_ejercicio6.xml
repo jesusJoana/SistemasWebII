@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE zoo [
+<!ELEMENT zoo (animal+, ticket)>
+<!ELEMENT animal (name, age, food+, caretaker?, note?)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT food (#PCDATA)>
+<!ELEMENT caretaker (#PCDATA)>
+<!ELEMENT note (#PCDATA)>
+<!ELEMENT ticket EMPTY>
+
+<!ATTLIST animal id CDATA #REQUIRED>
+<!ATTLIST animnal type CDATA #IMPLIED>
+<!ATTLIST ticket code CDATA #REQUIRED>
+]> 
+
+<zoo>
+    <animal id="a1" type="mammal">
+        <name>Lion</name>
+        <age>8</age>
+        <food>Meat</food>
+        <food>Chicken</food>
+        <caretaker>
+            John Smith
+        </caretaker>
+    </animal>
+
+    <animal id="a2">
+        <name>Parrot</name>
+        <age>2</age>
+        <food>Seeds</food>
+        <note>Very noisy</note>
+    </animal>
+    <ticket code="t100"/>
+</zoo>

@@ -1,0 +1,17 @@
+[
+  { "restaurantName": "La Esquina Verde", "customer": "Ana", "status": "delivered", "total": 27.75, "items": 3 },
+  { "restaurantName": "La Esquina Verde", "customer": "Luis", "status": "delivered", "total": 18.50, "items": 2 },
+  { "restaurantName": "La Esquina Verde", "customer": "Marta", "status": "cancelled", "total": 8.50, "items": 1 },
+  { "restaurantName": "Sushi Norte", "customer": "Diego", "status": "delivered", "total": 31.75, "items": 4 },
+  { "restaurantName": "Sushi Norte", "customer": "Elena", "status": "preparing", "total": 18.25, "items": 2 },
+  { "restaurantName": "Pasta Centro", "customer": "Irene", "status": "delivered", "total": 22.50, "items": 2 },
+  { "restaurantName": "Taco Sur", "customer": "Jorge", "status": "delivered", "total": 24.00, "items": 4 },
+  { "restaurantName": "Taco Sur", "customer": "Lucia", "status": "delivered", "total": 13.00, "items": 2 },
+  { "restaurantName": "Taco Sur", "customer": "Pablo", "status": "preparing", "total": 16.50, "items": 3 },
+  { "restaurantName": "Taco Sur", "customer": "Sofia", "status": "delivered", "total": 9.50, "items": 1 },
+  { "restaurantName": "Burger Rio", "customer": "Carlos", "status": "cancelled", "total": 14.00, "items": 2 },
+  { "restaurantName": "Burger Rio", "customer": "Nuria", "status": "delivered", "total": 23.50, "items": 3 },
+  { "restaurantName": "Curry Plaza", "customer": "Raul", "status": "delivered", "total": 25.50, "items": 3 },
+  { "restaurantName": "Curry Plaza", "customer": "Eva", "status": "preparing", "total": 34.00, "items": 4 },
+  { "restaurantName": "Curry Plaza", "customer": "Mario", "status": "delivered", "total": 12.00, "items": 2 }
+]

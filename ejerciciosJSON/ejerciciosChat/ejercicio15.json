@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["hotel", "categoria", "abierto", "servicios", "habitaciones"],
+  "properties": {
+    "hotel": {
+      "type": "string",
+      "minLength": 5
+    },
+    "categoria": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "abierto": {
+      "type": "boolean"
+    },
+    "servicios": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "habitaciones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/habitacion"
+      }
+    }
+  },
+  "$defs": {
+    "habitacion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["numero", "tipo", "precioNoche", "ocupada", "cliente"],
+      "properties": {
+        "numero": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 999
+        },
+        "tipo": {
+          "type": "string",
+          "enum": ["individual", "doble", "suite"]
+        },
+        "precioNoche": {
+          "type": "number",
+          "minimum": 0
+        },
+        "ocupada": {
+          "type": "boolean"
+        },
+        "cliente": {
+          "$ref": "#/$defs/cliente"
+        }
+      }
+    },
+    "cliente": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dni", "nombre", "email"],
+      "properties": {
+        "dni": {
+          "type": "string",
+          "pattern": "^[0-9]{8}[A-Z]$"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        }
+      }
+    }
+  }
+}

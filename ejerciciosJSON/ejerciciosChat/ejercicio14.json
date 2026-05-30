@@ -1,0 +1,87 @@
+{
+    "type":"object",
+    "required":["plataforma", "anioFundacion","activa","direccion","cursos"],
+    "properties":{
+        "plataforma":{
+            "type":"string",
+            "minLength": 3
+        },
+        "anioFundacion":{
+            "type":"integer",
+            "minLength": 2000
+        },
+        "activa":{
+            "type":"boolean"
+        },
+        "direccion":{
+            "type":"object",
+            "required":["ciudad","pais","codigoPostal"],
+            "properties":{
+                "ciudad":{
+                    "type":"string"
+                },
+                "pais":{
+                    "type":"string"
+                },
+                "codigoPostal":{
+                    "type":"string",
+                    "pattern": "^[0-9]{5}$"
+                }
+            }
+        },
+        "cursos":{
+            "type":"array",
+            "minLength":1,
+            "items":{
+                "type":"object",
+                "required":["id","titulo","nivel","precio","profesor","etiquetas","duracionHoras","publicado"],
+                "properties":{
+                    "id":{
+                    "type":"string",
+                    "pattern":"^CUR-[0-9]{3}$"
+                    },
+                    "titulo":{
+                        "type":"string"
+                    },
+                    "nivel":{
+                        "type":"string",
+                        "enum":["basico", "intermedio","avanzado"]
+                    },
+                    "precio":{
+                        "type":"number",
+                        "minLength": 0
+                    },
+                    "profesor":{
+                        "type": "object",
+                        "required":["nombre","email"],
+                        "properties":{
+                            "nombre":{
+                                "type":"string"
+                            },
+                            "email":{
+                                "type":"string",
+                                "format":"email"
+                            }
+                        }
+                    },
+                    "etiquetas":{
+                        "type":"array",
+                        "items":{
+                            "type":"string"
+                        },
+                        "uniqueItems": true
+                    },
+                    "duracionHoras":{
+                        "type":"integer",
+                        "minimum":1,
+                        "maximun":500
+                    },
+                    "publicado":{
+                        "type":"boolean"
+                    }
+                }
+            }
+            
+        }
+    }
+}

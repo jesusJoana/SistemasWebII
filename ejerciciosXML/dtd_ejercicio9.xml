@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE library [
+<!ELEMENT library (book+)>
+<!ELEMENT book (title, author+, year, price, tags?)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT tags (tag+)>
+<!ELEMENT tag (#PCDATA)>
+
+<!ATTLIST book id CDATA #REQUIRED>
+<!ATTLIST book available CDATA #IMPLIED>
+<!ATTLIST title lang CDATA #REQUIRED>
+<!ATTLIST price currency CDATA #REQUIRED>
+]>
+
+<library>
+  <book id="b1" available="true">
+    <title lang="en">Learning XML</title>
+    <author>Erik T. Ray</author>
+    <year>2003</year>
+    <price currency="USD">39.95</price>
+    <tags>
+      <tag>xml</tag>
+      <tag>web</tag>
+    </tags>
+  </book>
+  <book id="b2">
+    <title lang="es">APIs REST con Node</title>
+    <author>Laura Perez</author>
+    <author>Mario Gomez</author>
+    <year>2024</year>
+    <price currency="EUR">29.90</price>
+  </book>
+</library>

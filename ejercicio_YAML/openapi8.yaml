@@ -1,0 +1,25 @@
+openapi: 3.1.0
+
+info: 
+  title: API de videojuegos
+  version: 1.1.0
+  description: API REST para consultar y gestionar el catálogo.
+
+paths:
+  /videojuegos:
+    get:
+      summary: Obtener todos los videojuegos
+      parameters:
+        - name: plataforma
+          in: query
+          description: Filtrar videojuegos por plataforma
+          schema:
+            type: string
+      
+      responses:
+        "200":
+          description: Operación correcta
+          content:
+            application/json:
+                items:
+                  $ref: '#/components/schemas/videojuegos'

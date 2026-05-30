@@ -1,0 +1,142 @@
+openapi: 3.0.3
+info:
+  description: |-
+    Restaurant API documentation
+  version: 1.0.0
+  title: Restaurants
+tags:
+  - name: restaurant
+    description: Everything about restaurants
+paths:
+  /restaurant:
+    get:
+      tags:
+        - restaurant
+      summary: GET all restaurants
+      description: GET all restaurants
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: next
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurants'
+    post:
+      tags:
+        - restaurant
+      summary: Add a new restaurant
+      description: Add a new restaurant to the database
+      operationId: addRestaurant
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurant'
+        "400":
+          description: Invalid input
+      requestBody:
+        description: Restaurant object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Restaurant'
+  /restaurant/{restaurantId}:
+    parameters:
+      - $ref: '#/components/parameters/ID'
+    get:
+      tags:
+        - restaurant
+      summary: Find restaurant by ID
+      description: Returns a single restaurant
+      operationId: getRestaurantById
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Restaurant'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Restaurant not found
+    delete:
+      tags:
+        - restaurant
+      summary: Deletes a restaurant
+      description: Deletes a restaurant by ID
+      operationId: deleteRestaurant
+      responses:
+        "204":
+          description: Restaurant deleted
+        "400":
+          description: Invalid restaurant ID
+        "404":
+          description: Restaurant not found
+components:
+  parameters:
+    ID:
+      description: Restaurant ID
+      name: restaurantId
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/ID"
+  schemas:
+    Restaurants:
+      type: object
+      properties:
+        results:
+          $ref: "#/components/schemas/RestaurantArray"
+        next:
+          type: string
+          nullable: true
+          description: Restaurant next ID for pagination search
+      required:
+        - results
+        - next
+    RestaurantArray:
+      type: array
+      items:
+        $ref: "#/components/schemas/RestaurantMin"
+    RestaurantMin:
+      type: object
+      properties:
+        _id:
+          $ref: "#/components/schemas/ID"
+        name:
+          type: string
+          description: Restaurant name
+        cuisine:
+          type: string
+          description: Cuisine type
+        rating:
+          type: number
+          description: Average rating
+      required:
+        - _id
+        - name
+        - cuisine
+        - rating
+    Restaurant:
+      # TODO
+    ID:
+      type: string
+      description: Restaurant ID obtained from the database
+      example: 6463448ae7684d03f44af30f
+servers:
+  - url: http://localhost:3010/api/v2

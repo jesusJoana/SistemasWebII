@@ -11,4 +11,17 @@
 
 # 1 - db.companies.countDocuments({$expr:{$gt:["$number_of_employees", "$founded_year"]}})
 # 2 - db.companies.countDocuments({$expr:{$eq:["$permalink", "$twitter_username"]}})
-# 3 -   
+# 3 - db.listingsAndReviews.find({"accommodates":{$gt:6},"number_of_reviews":50}, {name:1, _id:0})
+# 4 - db.listingsAndReviews.find({"property_type":"House", "amenities":"Changing table"}).count()
+# 5 - db.companies.countDocuments({"offices.city":"Seattle"})
+# 6 - db.companies.find({"funding_rounds":{$size:8}},{name:1, _id:0})
+# 7 - db.trips.find({"start station location.coordinates.0":{$lt:-74}}).count()
+# 8 - db.inspections.find({"address.city":"NEW YORK"}).count()
+# 9 - db.listingsAndReviews.find({"amenities.0":"Internet"}, {name:1, address:1, _id:0})
+
+# Ejercicio 3 MongoDB consultas
+1 -  
+
+
+# Node.js - Ejemplo del proyecto: mongodb_express_rest_api_server
+ 

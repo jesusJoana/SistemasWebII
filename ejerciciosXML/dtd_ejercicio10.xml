@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE universidad [
+<!ELEMENT universidad (curso+)>
+<!ELEMENT curso (nombre, profesor+, creditos, alumnos?)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT profesor (#PCDATA)>
+<!ELEMENT creditos (#PCDATA)>
+<!ELEMENT alumnos (alumno+)>
+<!ELEMENT alumno (nombre, email)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+
+<!ATTLIST curso codigo CDATA #REQUIRED>
+<!ATTLIST curso activo CDATA #REQUIRED>
+<!ATTLIST email tipo CDATA #REQUIRED> 
+]>
+
+<universidad>
+  <curso codigo="SW2" activo="true">
+    <nombre>Sistemas Web II</nombre>
+    <profesor>Ana Lopez</profesor>
+    <profesor>Carlos Martin</profesor>
+    <creditos>6</creditos>
+    <alumnos>
+      <alumno>
+        <nombre>Julio Perez</nombre>
+        <email tipo="universitario">julio@universidad.es</email>
+      </alumno>
+      <alumno>
+        <nombre>Laura Garcia</nombre>
+        <email tipo="personal">laura@gmail.com</email>
+      </alumno>
+    </alumnos>
+  </curso>
+
+  <curso codigo="BD" activo="false">
+    <nombre>Bases de Datos</nombre>
+    <profesor>Mario Gomez</profesor>
+    <creditos>6</creditos>
+  </curso>
+</universidad>

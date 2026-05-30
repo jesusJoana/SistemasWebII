@@ -1,0 +1,105 @@
+openapi: 3.1.0
+
+info:
+  title: API para gestión de productos
+  version: 1.0.0
+  description: API REST para gestionar productos
+
+paths:
+  /productos:
+    get:
+      summary: Permite obtener el listado de productos
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+
+        - name: categoria
+          in: query
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: Operación correcta
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/producto'
+
+        "422":
+          description: Parámetros incorrectos
+
+    post:
+      summary: Permite registrar un nuevo producto
+      responses:
+        "201":
+          description: Producto creado
+
+        "400":
+          description: Formato incorrecto
+
+  /productos/{id}:
+    get:
+      summary: Permite obtener un producto concreto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        "200":
+          description: Operación correcta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/producto'
+
+        "404":
+          description: Producto no encontrado
+
+    delete:
+      summary: Permite eliminar un producto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        "200":
+          description: Producto eliminado
+
+        "404":
+          description: Producto no encontrado
+
+components:
+  schemas:
+    producto:
+      type: object
+      required:
+        - id
+        - nombre
+        - precio
+
+      properties:
+        id:
+          type: integer
+
+        nombre:
+          type: string
+
+        precio:
+          type: number
+
+        stock:
+          type: integer
+
+        disponible:
+          type: boolean

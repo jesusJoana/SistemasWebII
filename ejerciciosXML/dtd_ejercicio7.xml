@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE school [
+<!ELEMENT school (classroom, event, announcement)>
+<!ELEMENT classroom (student+)>
+<!ELEMENT student (name,grade,club*)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT grade (#PCDATA)>
+<!ELEMENT club (#PCDATA)>
+<!ELEMENT event (title,date)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT announcement EMPTY>
+
+<!ATTLIST classroom number CDATA #REQUIRED>
+<!ATTLIST student id CDATA #REQUIRED>
+<!ATTLIST event type CDATA #REQUIRED>
+<!ATTLIST announcement code CDATA #REQUIRED>
+]>
+
+<school>
+    <classroom number="A12">
+        <student id="s1">
+            <name>Laura</name>
+            <grade>8</grade>
+            <club>Music</club>
+            <club>Drama</club>
+        </student>
+
+        <student id="s2">
+            <name>David</name>
+            <grade>7</grade>
+        </student>
+    </classroom>
+
+    <event type="sports">
+        <title>Football Tournament</title>
+        <date>2026-06-12</date>
+    </event>
+
+    <announcement code="x1"/>
+</school>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE universidad [
+<!ELEMENT alumno (nombre, edad, asignatura*)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT edad (#PCDATA)>
+<!ELEMENT asignatura (#PCDATA)>
+
+<!ATTLIST universidad id CDATA #REQUIRED>
+]>
+
+
+<universidad>
+
+    <alumno id="a1">
+        <nombre>Juan</nombre>
+        <edad>20</edad>
+        <asignatura>Bases de Datos</asignatura>
+        <asignatura>XML</asignatura>
+    </alumno>
+
+    <alumno id="a2">
+        <nombre>Lucía</nombre>
+        <edad>21</edad>
+    </alumno>
+
+</universidad>

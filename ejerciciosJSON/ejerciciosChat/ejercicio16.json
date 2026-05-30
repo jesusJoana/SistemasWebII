@@ -1,0 +1,81 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type":"object",
+    "additionalProperties": false,
+    "required": ["biblioteca","ciudad","publica","libros"],
+    "properties": {
+        "biblioteca":{
+            "type":"string",
+            "minLength": 5
+        },
+        "ciudad":{
+            "type":"string"
+        },
+        "publica":{
+            "type": "boolean"
+        },
+        "libros":{
+            "type":"array",
+            "minItems": 1,
+            "items":{
+                "$ref":"#/$defs/libro"
+            }
+        }
+    },
+    "$defs":{
+        "libro":{
+            "type":"object",
+            "additionalProperties": false,
+            "required": ["isbn","titulo","paginas","categoria","disponible","autor","etiquetas"],
+            "properties": {
+                "isbn":{
+                    "type":"string",
+                    "pattern": "^ISBN-[0-9]{4}$"
+                },
+                "titulo":{
+                    "type":"string"
+                },
+                "paginas":{
+                    "type":"integer",
+                    "minimum": 1,
+                    "maximum": 5000
+                },
+                "categoria":{
+                    "type":"string",
+                    "enum":["informatica","historia","novela","ciencia"]
+                },
+                "disponible":{
+                    "type":"boolean"
+                },
+                "autor":{
+                    "$ref":"#/$defs/autor"
+                },
+                "etiquetas":{
+                    "type":"array",
+                    "items":{
+                        "type":"string"
+                    },
+                    "uniqueItems": true
+                }
+            }
+        },
+        "autor": {
+            "type":"object",
+            "additionalProperties": false,
+            "required": ["dni","nombre","email"],
+            "properties": {
+                "dni":{
+                    "type":"string",
+                    "pattern": "^[0-9]{8}[A-Z]$"
+                },
+                "nombre":{
+                    "type":"string"
+                },
+                "email":{
+                    "type":"string",
+                    "format":"email"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,83 @@
+openapi: 3.1.0
+
+info:
+  title: API de recursos
+  version: 1.0.0
+  description: API REST para gestionar sus recursos
+
+paths:
+  /cursos:
+    get:
+      summary: Permite obtener el listado de recursos
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+        
+        - name: profesor
+          in: query
+          schema:
+            type: string
+
+      responses:
+        "200":
+          description: Operacion correcta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/curso'
+        
+        "422":
+          description: Parámetros incorrectos
+
+    post:
+      summary: Permite registrar un nuevo curso
+      responses:
+        "201":
+          description: Curso creado
+        "400":
+          description: Formato incorrecto
+    
+  
+  /cursos/{id}:
+    get:
+      summary: Permite obtener un recurso concreto
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      
+      responses:
+        "200":
+          description: Operación correcta
+        
+        "400":
+          description: Curso no encontrado
+
+components:
+  schemas:
+    curso:
+      type: object
+      required: 
+        - id
+        - nombre
+        - profesor
+      
+      properties:
+        id:
+          tpye: integer
+        
+        nombre:
+          type: string
+        
+        profesor:
+          type: string
+
+        creditos:
+          type: integer
+        
+        activo:
+          type: boolean

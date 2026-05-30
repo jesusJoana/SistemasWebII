@@ -1,0 +1,54 @@
+{
+    "type": "object",
+    "required":["hospital","pacientes"],
+    "properties":{
+        "hospital": {
+            "type":"string"
+        },
+        "pacientes":{
+            "type":"array",
+            "items":{
+                "type":"object",
+                "required":["nombre","email","edad","grupoSanguineo","altura","fumador","medicamentos"],
+                "properties":{
+                    "nombre":{
+                        "type":"string"
+                    },
+                    "email":{
+                        "type":"string",
+                        "format":"email"
+                    },
+                    "edad":{
+                        "type":"integer"
+                    },
+                    "grupoSanguineo":{
+                        "type":"string"
+                    },
+                    "altura":{
+                        "type":"number"
+                    },
+                    "fumador":{
+                        "type":"boolean"
+                    },
+                    "medicamentos":{
+                        "type":"array",
+                        "items":{
+                            "required":["nombre","dosis"],
+                            "properties":{
+                                "nombre":{
+                                    "type":"string"
+                                },
+                                "dosis":{
+                                    "type":"integer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "privado":{
+            "type":"boolean"
+        }
+    }
+}
