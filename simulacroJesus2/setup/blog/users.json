@@ -1,0 +1,8 @@
+[
+  { "username": "Ana", "role": "editor", "active": true, "karma": 42 },
+  { "username": "Luis", "role": "author", "active": true, "karma": 18 },
+  { "username": "Sofia", "role": "author", "active": true, "karma": 25 },
+  { "username": "Jesus", "role": "author", "active": true, "karma": 31 },
+  { "username": "Marta", "role": "reader", "active": false, "karma": 9 },
+  { "username": "Pablo", "role": "reader", "active": true, "karma": 11 }
+]

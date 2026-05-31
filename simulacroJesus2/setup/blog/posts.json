@@ -1,0 +1,82 @@
+[
+  {
+    "title": "Primeros pasos con MongoDB",
+    "author": "Ana",
+    "createdAt": "2026-02-01",
+    "tags": ["mongodb", "nosql", "intro"],
+    "likes": 12,
+    "published": true,
+    "comments": [
+      { "user": "Luis", "text": "Muy claro", "createdAt": "2026-02-02" },
+      { "user": "Marta", "text": "Me sirvio para practicar", "createdAt": "2026-02-03" }
+    ]
+  },
+  {
+    "title": "Consultas con arrays",
+    "author": "Luis",
+    "createdAt": "2026-02-10",
+    "tags": ["mongodb", "arrays"],
+    "likes": 7,
+    "published": true,
+    "comments": [
+      { "user": "Ana", "text": "Buen ejemplo de $all", "createdAt": "2026-02-11" }
+    ]
+  },
+  {
+    "title": "Agregaciones utiles",
+    "author": "Ana",
+    "createdAt": "2026-03-05",
+    "tags": ["mongodb", "aggregate", "nosql"],
+    "likes": 21,
+    "published": true,
+    "comments": [
+      { "user": "Pablo", "text": "El group me costo menos asi", "createdAt": "2026-03-06" },
+      { "user": "Irene", "text": "Faltaria un ejemplo con unwind", "createdAt": "2026-03-07" },
+      { "user": "Diego", "text": "Gracias", "createdAt": "2026-03-08" }
+    ]
+  },
+  {
+    "title": "Indices en Node",
+    "author": "Sofia",
+    "createdAt": "2026-03-20",
+    "tags": ["node", "mongodb", "indices"],
+    "likes": 16,
+    "published": false,
+    "comments": []
+  },
+  {
+    "title": "Express y MongoDB",
+    "author": "Jesus",
+    "createdAt": "2026-04-02",
+    "tags": ["node", "express", "mongodb"],
+    "likes": 19,
+    "published": true,
+    "comments": [
+      { "user": "Marta", "text": "Me falla la variable de entorno", "createdAt": "2026-04-03" },
+      { "user": "Luis", "text": "Revisa dotenv", "createdAt": "2026-04-04" }
+    ]
+  },
+  {
+    "title": "Transacciones en MongoDB",
+    "author": "Sofia",
+    "createdAt": "2026-04-18",
+    "tags": ["mongodb", "transactions", "acid"],
+    "likes": 9,
+    "published": true,
+    "comments": [
+      { "user": "Ana", "text": "Interesante", "createdAt": "2026-04-19" }
+    ]
+  },
+  {
+    "title": "Modelado de documentos",
+    "author": "Jesus",
+    "createdAt": "2026-05-01",
+    "tags": ["nosql", "modelado"],
+    "likes": 14,
+    "published": true,
+    "comments": [
+      { "user": "Sofia", "text": "Buen resumen", "createdAt": "2026-05-02" },
+      { "user": "Pablo", "text": "Podrias comparar embedding y referencias", "createdAt": "2026-05-03" }
+    ]
+  }
+]

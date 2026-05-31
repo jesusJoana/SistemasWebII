@@ -1,0 +1,218 @@
+openapi: 3.0.3
+info:
+  description: |-
+    Blog API documentation
+  version: 1.0.0
+  title: Blog Posts
+tags:
+  - name: post
+    description: Everything about posts
+paths:
+  /posts:
+    get:
+      tags:
+        - post
+      summary: GET posts
+      description: Returns a paginated list of posts
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: skip
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: tag
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Posts'
+  /posts/latest:
+    get:
+      tags:
+        - post
+      summary: GET latest posts
+      description: Returns the three newest posts
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostList'
+  /posts/stats/authors:
+    get:
+      tags:
+        - post
+      summary: GET author stats
+      description: Returns the number of posts written by each author
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorStats'
+  /posts/{postId}:
+    parameters:
+      - $ref: '#/components/parameters/ID'
+    get:
+      tags:
+        - post
+      summary: Find post by ID
+      operationId: getPostById
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Post not found
+    delete:
+      tags:
+        - post
+      summary: Deletes a post
+      operationId: deletePost
+      responses:
+        "204":
+          description: Post deleted
+        "400":
+          description: Invalid post ID
+        "404":
+          description: Post not found
+  /posts/{postId}/comments:
+    parameters:
+      - $ref: '#/components/parameters/ID'
+    post:
+      tags:
+        - post
+      summary: Adds a comment to a post
+      operationId: addComment
+      responses:
+        "201":
+          description: Comment added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        "400":
+          description: Invalid input
+        "404":
+          description: Post not found
+      requestBody:
+        description: Comment object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Comment'
+  /posts/{postId}/likes:
+    parameters:
+      - $ref: '#/components/parameters/ID'
+    patch:
+      tags:
+        - post
+      summary: Adds one like to a post
+      operationId: likePost
+      responses:
+        "200":
+          description: Like added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        "400":
+          description: Invalid post ID
+        "404":
+          description: Post not found
+components:
+  parameters:
+    ID:
+      description: Post ID
+      name: postId
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/ID"
+  schemas:
+    Posts:
+      type: object
+      properties:
+        results:
+          $ref: "#/components/schemas/PostList"
+        count:
+          type: integer
+          description: Number of returned posts
+      required:
+        - results
+        - count
+    PostList:
+      type: array
+      items:
+        $ref: "#/components/schemas/PostMin"
+    PostMin:
+      type: object
+      properties:
+        _id:
+          $ref: "#/components/schemas/ID"
+        title:
+          type: string
+        author:
+          type: string
+        createdAt:
+          type: string
+      required:
+        - _id
+        - title
+        - author
+        - createdAt
+    Post:
+      # TODO
+    Comment:
+      type: object
+      properties:
+        user:
+          type: string
+        text:
+          type: string
+        createdAt:
+          type: string
+      required:
+        - user
+        - text
+    AuthorStats:
+      type: array
+      items:
+        type: object
+        properties:
+          author:
+            type: string
+          posts:
+            type: integer
+          totalLikes:
+            type: integer
+        required:
+          - author
+          - posts
+          - totalLikes
+
+    ID:
+      type: string
+      description: Post ID obtained from the database
+      example: 6463448ae7684d03f44af30f
+servers:
+  - url: http://localhost:3000/api/v2

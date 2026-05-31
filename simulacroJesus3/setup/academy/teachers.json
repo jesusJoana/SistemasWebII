@@ -1,0 +1,7 @@
+[
+  { "name": "Ana", "department": "NoSQL", "active": true, "years": 6 },
+  { "name": "Jesus", "department": "Web", "active": true, "years": 3 },
+  { "name": "Sofia", "department": "Testing", "active": true, "years": 5 },
+  { "name": "Luis", "department": "Web", "active": false, "years": 2 },
+  { "name": "Marta", "department": "NoSQL", "active": true, "years": 4 }
+]

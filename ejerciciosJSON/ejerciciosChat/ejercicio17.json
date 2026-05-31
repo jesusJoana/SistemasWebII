@@ -1,0 +1,79 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "required":["clinica","telefono","urgencias","mascotas"],
+    "properties": {
+        "clinica":{
+            "type":"string",
+            "minLength":5
+        },
+        "telefono":{
+            "type":"string",
+            "pattern":"^[0-9]{9}$"
+        },
+            "urgencias":{
+            "type":"boolean"
+        },
+        "mascotas":{
+            "type": "arary",
+            "minItems":1,
+            "items": {
+                "$ref":"#/$defs/mascota"
+            }
+        }
+    },
+    "$defs":{
+        "mascota":{
+            "type":"object",
+            "required": ["codigo","nombre","especie","edad","vacunada","dueno","tratamientos"],
+            "properties": {
+                "codigo":{
+                    "type":"string",
+                    "pattern":"^PET-[0-9]{3}$"
+                },
+                "nombre":{
+                    "type":"string"
+                },
+                "especie":{
+                    "type":"string",
+                    "enum":["perro", "gato", "consejo","ave"]
+                },
+                "edad":{
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 30
+                },
+                "vacunada":{
+                    "type": "boolean"
+                },
+                "dueno":{
+                    "$ref":"#/$defs/dueno"
+                },
+                "tratamientos":{
+                    "type":"array",
+                    "items": {
+                        "type":"string"
+                    },
+                    "uniqueItems": true
+                }
+            }
+        },
+        "dueno":{
+            "type":"object",
+            "required": ["dni","nombre","email"],
+            "properties": {
+                "dni":{
+                    "type":"string",
+                    "pattern": "^[0-9]{8}[A-Z]$"
+                },
+                "nombre":{
+                    "type":"string"
+                },
+                "email":{
+                    "type":"string",
+                    "format":"email"
+                }
+            }
+        }
+    }
+}

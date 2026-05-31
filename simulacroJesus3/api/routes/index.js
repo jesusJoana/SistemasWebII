@@ -1,0 +1,8 @@
+const express = require('express');
+const router = express.Router();
+
+router.get('/', function(req, res) {
+  res.render('index', { title: 'Simulacro Jesus 3' });
+});
+
+module.exports = router;

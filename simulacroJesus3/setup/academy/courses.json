@@ -1,0 +1,76 @@
+[
+  {
+    "title": "MongoDB desde cero",
+    "teacher": "Ana",
+    "level": "basico",
+    "startDate": "2026-02-03",
+    "skills": ["mongodb", "nosql", "json"],
+    "enrolled": 18,
+    "active": true,
+    "students": [
+      { "name": "Luis", "email": "luis@example.com", "joinedAt": "2026-02-04" },
+      { "name": "Marta", "email": "marta@example.com", "joinedAt": "2026-02-05" }
+    ]
+  },
+  {
+    "title": "Express REST API",
+    "teacher": "Jesus",
+    "level": "intermedio",
+    "startDate": "2026-03-01",
+    "skills": ["node", "express", "rest"],
+    "enrolled": 24,
+    "active": true,
+    "students": [
+      { "name": "Sofia", "email": "sofia@example.com", "joinedAt": "2026-03-02" }
+    ]
+  },
+  {
+    "title": "Agregaciones MongoDB",
+    "teacher": "Ana",
+    "level": "intermedio",
+    "startDate": "2026-03-17",
+    "skills": ["mongodb", "aggregate", "nosql"],
+    "enrolled": 31,
+    "active": true,
+    "students": [
+      { "name": "Pablo", "email": "pablo@example.com", "joinedAt": "2026-03-18" },
+      { "name": "Irene", "email": "irene@example.com", "joinedAt": "2026-03-19" },
+      { "name": "Diego", "email": "diego@example.com", "joinedAt": "2026-03-20" }
+    ]
+  },
+  {
+    "title": "OpenAPI y testing",
+    "teacher": "Sofia",
+    "level": "intermedio",
+    "startDate": "2026-04-05",
+    "skills": ["openapi", "testing", "rest"],
+    "enrolled": 16,
+    "active": false,
+    "students": []
+  },
+  {
+    "title": "Modelado NoSQL",
+    "teacher": "Jesus",
+    "level": "avanzado",
+    "startDate": "2026-04-22",
+    "skills": ["nosql", "modelado", "mongodb"],
+    "enrolled": 12,
+    "active": true,
+    "students": [
+      { "name": "Elena", "email": "elena@example.com", "joinedAt": "2026-04-23" },
+      { "name": "Carlos", "email": "carlos@example.com", "joinedAt": "2026-04-24" }
+    ]
+  },
+  {
+    "title": "Indices y rendimiento",
+    "teacher": "Sofia",
+    "level": "avanzado",
+    "startDate": "2026-05-10",
+    "skills": ["mongodb", "indices", "performance"],
+    "enrolled": 27,
+    "active": true,
+    "students": [
+      { "name": "Nuria", "email": "nuria@example.com", "joinedAt": "2026-05-11" }
+    ]
+  }
+]

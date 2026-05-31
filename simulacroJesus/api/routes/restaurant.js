@@ -22,10 +22,16 @@ router.get('/', async (req, res) => {
   let results = await dbConnect
     .collection(COLLECTION)
     .find(query)
+    .project({name:1, cuisine:1, rating:1})
     .sort({ _id: -1 })
     .limit(limit)
     .toArray()
     .catch(err => res.status(400).send('Error searching for restaurants'));
+
+    results = results.map(restaurant => ({
+      ...restaurant,
+      link: `${req.protocol}://${req.get('host')}/api/v2/restaurant/${restaurant._id}`
+    }));
 
   next = results.length == limit ? results[results.length - 1]._id : null;
   res.json({ results, next }).status(200);

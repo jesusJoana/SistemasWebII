@@ -1,0 +1,220 @@
+openapi: 3.0.3
+info:
+  description: |-
+    Academy API documentation
+  version: 1.0.0
+  title: Academy Courses
+tags:
+  - name: course
+    description: Everything about courses
+paths:
+  /courses:
+    get:
+      tags:
+        - course
+      summary: GET courses
+      description: Returns a paginated list of courses
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: skip
+          in: query
+          required: false
+          schema:
+            type: integer
+        - name: skill
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Courses'
+  /courses/featured:
+    get:
+      tags:
+        - course
+      summary: GET featured courses
+      description: Returns the three active courses with more enrolled students
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CourseList'
+  /courses/stats/levels:
+    get:
+      tags:
+        - course
+      summary: GET level stats
+      description: Returns number of courses and enrolled students by level
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LevelStats'
+  /courses/{courseId}:
+    parameters:
+      - $ref: '#/components/parameters/ID'
+    get:
+      tags:
+        - course
+      summary: Find course by ID
+      operationId: getCourseById
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Course not found
+    delete:
+      tags:
+        - course
+      summary: Deletes a course
+      operationId: deleteCourse
+      responses:
+        "204":
+          description: Course deleted
+        "400":
+          description: Invalid course ID
+        "404":
+          description: Course not found
+  /courses/{courseId}/students:
+    parameters:
+      - $ref: '#/components/parameters/ID'
+    post:
+      tags:
+        - course
+      summary: Adds a student to a course
+      operationId: addStudent
+      responses:
+        "201":
+          description: Student added
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        "400":
+          description: Invalid input
+        "404":
+          description: Course not found
+      requestBody:
+        description: Student object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+  /courses/{courseId}/publish:
+    parameters:
+      - $ref: '#/components/parameters/ID'
+    patch:
+      tags:
+        - course
+      summary: Publishes a course
+      operationId: publishCourse
+      responses:
+        "200":
+          description: Course published
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        "400":
+          description: Invalid course ID
+        "404":
+          description: Course not found
+components:
+  parameters:
+    ID:
+      description: Course ID
+      name: courseId
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/ID"
+  schemas:
+    Courses:
+      type: object
+      properties:
+        results:
+          $ref: "#/components/schemas/CourseList"
+        count:
+          type: integer
+          description: Number of returned courses
+        nextSkip:
+          type: integer
+          description: Next skip value for pagination
+      required:
+        - results
+        - count
+        - nextSkip
+    CourseList:
+      type: array
+      items:
+        $ref: "#/components/schemas/CourseMin"
+    CourseMin:
+      type: object
+      properties:
+        _id:
+          $ref: "#/components/schemas/ID"
+        title:
+          type: string
+        teacher:
+          type: string
+        level:
+          type: string
+        enrolled:
+          type: integer
+      required:
+        - _id
+        - title
+        - teacher
+        - level
+        - enrolled
+    Course:
+      # TODO
+    Student:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        joinedAt:
+          type: string
+      required:
+        - name
+        - email
+    LevelStats:
+      type: array
+      items:
+        type: object
+        properties:
+          level:
+            type: string
+          courses:
+            type: integer
+          totalEnrolled:
+            type: integer
+    ID:
+      type: string
+      description: Course ID obtained from the database
+      example: 6463448ae7684d03f44af30f
+servers:
+  - url: http://localhost:3000/api/v2
